@@ -1,7 +1,6 @@
-const { program } = require('commander')
-const shell = require('shelljs')
-
 const SanitizeURL = require('./src/ObtainData')
+const shell = require('shelljs')
+const { program } = require('commander')
 
 program.arguments(`'<url>'`, 'TikTok video URL')
 
@@ -23,18 +22,18 @@ const infoObject = {
   downloadURL,
 }
 
-console.log(infoObject)
+console.info(infoObject)
 
 async function downloadVideo() {
   const { code, stderr } = await shell.exec(
-    `curl -L ${downloadURL} -o ${username}-${videoID}.mp4 --progress-bar`
+    `curl -L ${downloadURL} -o downloads/${username}-${videoID}.mp4 --progress-bar`
   )
 
   if (code !== 0) {
-    console.log(`Error: ${stderr}`)
+    console.error(`Error: ${stderr}`)
   }
 
-  console.log(`Downloaded video: ${username}-${videoID}.mp4`)
+  console.info(`Downloaded video: ${username}-${videoID}.mp4`)
 
   return code
 }

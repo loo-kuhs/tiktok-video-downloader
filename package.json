@@ -1,14 +1,22 @@
 {
   "name": "tiktok-video-downloader",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.2.0",
+  "description": "Script made using javascript to download video from TikTok with a url address.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "tiktok",
+    "video",
+    "downloader"
+  ],
+  "author": {
+    "name": "Lucas",
+    "github": "@loo-kuhs",
+    "url": "https://github.com/loo-kuhs/tiktok-video-downloader"
+  },
+  "license": "GLP-3.0",
   "dependencies": {
     "commander": "^10.0.0",
     "shelljs": "^0.8.5"
