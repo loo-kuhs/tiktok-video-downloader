@@ -26,14 +26,16 @@ console.info(infoObject)
 
 async function downloadVideo() {
   const { code, stderr } = await shell.exec(
-    `curl -L ${downloadURL} -o downloads/${username}-${videoID}.mp4 --progress-bar`
+    `curl -L ${downloadURL} -o downloads/${username}/${username}-${videoID}.mp4 --progress-bar --create-dirs`
   )
 
   if (code !== 0) {
     console.error(`Error: ${stderr}`)
   }
 
-  console.info(`Downloaded video: ${username}-${videoID}.mp4`)
+  console.info(
+    `Downloaded video: ${username}-${videoID}.mp4 in downloads/${username} directory`
+  )
 
   return code
 }
