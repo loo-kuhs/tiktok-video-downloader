@@ -1,4 +1,4 @@
-const SanitizeURL = require('./src/ObtainData')
+const SanitizeURL = require('./helpers/SanitizeUrl')
 const shell = require('shelljs')
 const { program } = require('commander')
 
