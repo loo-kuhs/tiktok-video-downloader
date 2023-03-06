@@ -37,10 +37,10 @@ if (options.file) {
 
   const urls = urlLoader.getUrlsArray()
 
-  for (const url of urls) {
+  urls.forEach((url) => {
     const sanitizeURL = new SanitizeURL(url)
     const { videoID, username, tikTokVideoURL, downloadURL } =
       sanitizeURL.createVideoObject()
     downloadVideo({ username, videoID, tikTokVideoURL, downloadURL })
-  }
+  })
 }

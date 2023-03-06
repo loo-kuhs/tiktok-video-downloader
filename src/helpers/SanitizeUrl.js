@@ -31,8 +31,7 @@ class SanitizeURL {
   getVideoID() {
     let url = this.#url.split('?')
     url = url[0].split('/')
-    url = url[url.length - 1]
-    this.#videoID = url
+    this.#videoID = url[url.length - 1]
     return this.#videoID
   }
 
@@ -59,7 +58,7 @@ class SanitizeURL {
    * @memberof SanitizeURL
    */
   getTikTokVideoURL() {
-    return `https://www.tiktok.com/@${this.getUsername()}/video/${this.getVideoID()}/`
+    return `https://www.tiktok.com/@${this.getUsername()}/video/${this.getVideoID()}`
   }
 
   /**
@@ -83,7 +82,7 @@ class SanitizeURL {
       videoID: this.getVideoID(),
       username: this.getUsername(),
       tikTokVideoURL: this.getTikTokVideoURL(),
-      downloadURL: this.getDownloadURL(),
+      downloadURL: this.getDownloadURL()
     }
   }
 }
