@@ -81,7 +81,7 @@ class TikTokVideoURL {
    * @memberof TikTokVideoURL
    */
   static isValidUsername(username) {
-    const regex = /^[a-zA-Z0-9_-]+$/
+    const regex = /^[a-zA-Z0-9_.?-]+$/g
     return regex.test(username)
   }
 
