@@ -1,4 +1,4 @@
-const SanitizeURL = require('./helpers/SanitizeUrl')
+const TikTokVideoURL = require('./helpers/TikTokVideoURL')
 const UrlLoader = require('./helpers/UrlLoader')
 const downloadVideo = require('./utils/downloadVideo')
 const packageJson = require('../package.json')
@@ -8,24 +8,16 @@ program
   .name('tiktok-video-downloader')
   .description('Download TikTok videos')
   .version(packageJson.version, '-v, --version', 'Display version number')
-
-program
   .option(`--url <url>`, 'URL to download')
   .option(`--file <file>`, 'File containing URLs to download')
-  .option('--version', 'Display version number')
-program.parse()
+  .parse(process.argv)
 
 const options = program.opts()
 
-if (options.version) {
-  console.info(packageJson.version)
-  process.exit(0)
-}
-
 if (options.url) {
-  const sanitizeURL = new SanitizeURL(options.url)
+  const ttVideoUrl = new TikTokVideoURL(options.url)
   const { videoID, username, tikTokVideoURL, downloadURL } =
-    sanitizeURL.createVideoObject()
+    ttVideoUrl.createVideoObject()
   downloadVideo({ username, videoID, tikTokVideoURL, downloadURL })
 }
 
@@ -38,9 +30,9 @@ if (options.file) {
   const urls = urlLoader.getUrlsArray()
 
   urls.forEach((url, index) => {
-    const sanitizeURL = new SanitizeURL(url)
+    const ttVideoUrl = new TikTokVideoURL(url)
     const { videoID, username, tikTokVideoURL, downloadURL } =
-      sanitizeURL.createVideoObject()
+      ttVideoUrl.createVideoObject()
 
     console.info(`\nDownloading video ${index + 1} of ${urls.length}...`)
     downloadVideo({ username, videoID, tikTokVideoURL, downloadURL })
