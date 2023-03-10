@@ -10,6 +10,7 @@ program
   .version(packageJson.version, '-v, --version', 'Display version number')
   .option(`--url <url>`, 'URL to download')
   .option(`--file <file>`, 'File containing URLs to download')
+  .option(`--read-file <file>`, 'File containing URLs to download')
   .parse(process.argv)
 
 const options = program.opts()
@@ -35,6 +36,35 @@ if (options.file) {
       ttVideoUrl.createVideoObject()
 
     console.info(`\nDownloading video ${index + 1} of ${urls.length}...`)
-    downloadVideo({ username, videoID, tikTokVideoURL, downloadURL })
+    downloadVideo(
+      { username, videoID, tikTokVideoURL, downloadURL },
+      index,
+      urls.length
+    )
+  })
+}
+
+if (options.readFile) {
+  const urlLoader = new UrlLoader(options.readFile)
+
+  urlLoader.loadUrls()
+  console.info(`This file contains ${urlLoader.getUrlsCount()} URLs`)
+
+  const urls = urlLoader.getUrlsArray()
+
+  urls.forEach((url, index) => {
+    const ttVideoUrl = new TikTokVideoURL(url)
+    const { videoID, username, tikTokVideoURL, downloadURL } =
+      ttVideoUrl.createVideoObject()
+
+    console.info(
+      `\n
+        Video ${index + 1} of ${urls.length}
+        Username: ${username}
+        Video ID: ${videoID}
+        TikTok Video URL: ${tikTokVideoURL}
+        Download URL: ${downloadURL}
+      \n`
+    )
   })
 }

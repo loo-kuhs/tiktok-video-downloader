@@ -46,3 +46,7 @@ node .\src\app.js --file urls.txt
 - [x] Add support for downloading multiple videos from txt file
 - [ ] Add support for downloading multiple videos from a given user
 - [ ] Refactor code to pure ESM package
+
+## Contributing
+
+Feel free to edit the code and submit a pull request.
