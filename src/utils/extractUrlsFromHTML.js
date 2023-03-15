@@ -1,5 +1,12 @@
 const fs = require('fs')
 
+/**
+ * It reads a file containing HTML, extracts the URLs, removes duplicates, and saves the unique URLs to a text
+ * file
+ * @method
+ * @param username - The username of the account you want to download from.
+ * @param htmlFile - The HTML file that contains the URLs you want to extract.
+ */
 async function urlsToTxtFile(username, htmlFile) {
   let html = fs.readFileSync(htmlFile, 'utf8')
 
@@ -32,4 +39,4 @@ async function urlsToTxtFile(username, htmlFile) {
   \n`)
 }
 
-module.exports = { urlsToTxtFile }
+module.exports = urlsToTxtFile

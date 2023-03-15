@@ -1,7 +1,7 @@
 const TikTokVideoURL = require('./helpers/TikTokVideoURL')
 const UrlLoader = require('./helpers/UrlLoader')
 const downloadVideo = require('./utils/downloadVideo')
-const { urlsToTxtFile } = require('./utils/extractUrlsFromHTML')
+const urlsToTxtFile = require('./utils/extractUrlsFromHTML')
 const packageJson = require('../package.json')
 const { program } = require('commander')
 
