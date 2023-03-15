@@ -16,6 +16,7 @@ async function writeLogData(username, log) {
   fs.appendFile(nameFile, content, { encoding: 'utf8', flag: 'a' }, (err) => {
     if (err) throw err
   })
+  
 }
 
 module.exports = { writeLogData }

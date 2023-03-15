@@ -31,6 +31,7 @@ node .\src\app.js --url 'https://www.tiktok.com/@mrbeast/video/71989287286746186
 # or
 node .\src\app.js --url 'https://www.tiktok.com/@mrbeast/video/7198928728674618667'
 ```
+
 > Note: The url must be enclosed in single quotes.
 
 ### Download multiple videos from a txt file
@@ -41,11 +42,22 @@ node .\src\app.js --file '<path_to_file>'
 node .\src\app.js --file urls.txt
 ```
 
+### Extract video urls from a txt file containing HTML from a profile of some tiktok user
+
+```bash
+node .\src\app.js -u '<username>' -extract-urls '<path_to_file>'
+# e.g.
+node .\src\app.js -u mrbeast --extract-urls mrbeast-html.txt
+```
+
+> Note: First scroll down the tiktok user page until the last video appears, and then copy the ```data-e2e="user-post-item-list"``` element from the user's HTML using DevTools. Then paste it into a txt file and save it.
+
 ## TODO
 
 - [x] Add support for downloading multiple videos from txt file
-- [ ] Add support for downloading multiple videos from a given user
+- [X] Extract video urls from a txt file containing HTML from a profile of some tiktok user
 - [ ] Refactor code to pure ESM package
+- [ ] Remove duplicate code
 
 ## Contributing
 

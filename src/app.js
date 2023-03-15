@@ -1,6 +1,7 @@
 const TikTokVideoURL = require('./helpers/TikTokVideoURL')
 const UrlLoader = require('./helpers/UrlLoader')
 const downloadVideo = require('./utils/downloadVideo')
+const { urlsToTxtFile } = require('./utils/extractUrlsFromHTML')
 const packageJson = require('../package.json')
 const { program } = require('commander')
 
@@ -11,6 +12,8 @@ program
   .option(`--url <url>`, 'URL to download')
   .option(`--file <file>`, 'File containing URLs to download')
   .option(`--read-file <file>`, 'File containing URLs to download')
+  .option(`--extract-urls <file>`, 'Extract URLs from a TXT file with HTML content and save them to a TXT file')
+  .option(`-u, --username <username>`, 'Username to download videos from')
   .parse(process.argv)
 
 const options = program.opts()
@@ -67,4 +70,8 @@ if (options.readFile) {
       \n`
     )
   })
+}
+
+if (options.extractUrls) {
+  urlsToTxtFile(options.username, options.extractUrls)
 }
