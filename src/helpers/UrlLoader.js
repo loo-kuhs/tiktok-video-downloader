@@ -1,4 +1,4 @@
-const fs = require('fs')
+import fs from 'fs'
 
 /**
  * Class for loading and manipulating URLs from a file.
@@ -127,4 +127,4 @@ class UrlLoader {
   }
 }
 
-module.exports = UrlLoader
+export default UrlLoader

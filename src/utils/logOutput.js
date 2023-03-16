@@ -1,6 +1,6 @@
-const fs = require('fs')
-const getDate = require('./getDate')
-const ensureDirectoryExistence = require('./checkPathExist')
+import { appendFile } from 'fs'
+import getDate from './getDate.js'
+import ensureDirectoryExistence from './checkPathExist.js'
 
 async function writeLogData(username, log) {
   const date = new Date().toISOString().slice(0, 10)
@@ -13,10 +13,9 @@ async function writeLogData(username, log) {
   |||||||||||||||||||||||||||||||||||||||||
   \n`
 
-  fs.appendFile(nameFile, content, { encoding: 'utf8', flag: 'a' }, (err) => {
+  appendFile(nameFile, content, { encoding: 'utf8', flag: 'a' }, (err) => {
     if (err) throw err
   })
-  
 }
 
-module.exports = { writeLogData }
+export default writeLogData

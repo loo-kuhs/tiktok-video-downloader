@@ -1,4 +1,4 @@
-const { writeLogData } = require('./logOutput')
+import writeLogData from './logOutput.js'
 
 /**
  * It logs the data to the console and writes it to a file.
@@ -33,4 +33,4 @@ function infoConsoleLog(
   writeLogData(username, log)
 }
 
-module.exports = infoConsoleLog
+export default infoConsoleLog

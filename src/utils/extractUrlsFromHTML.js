@@ -1,4 +1,4 @@
-const fs = require('fs')
+import { readFileSync, writeFileSync } from 'fs'
 
 /**
  * It reads a file containing HTML, extracts the URLs, removes duplicates, and saves the unique URLs to a text
@@ -8,7 +8,7 @@ const fs = require('fs')
  * @param htmlFile - The HTML file that contains the URLs you want to extract.
  */
 async function urlsToTxtFile(username, htmlFile) {
-  let html = fs.readFileSync(htmlFile, 'utf8')
+  let html = readFileSync(htmlFile, 'utf8')
 
   const regex = /<a href="(.+?)"/g
   let m
@@ -31,7 +31,7 @@ async function urlsToTxtFile(username, htmlFile) {
   let uniqueUrlsString = uniqueUrls.join('\n')
   const nameFile = `downloads/${username}-urls.txt`
 
-  fs.writeFileSync(nameFile, uniqueUrlsString, { encoding: 'utf8', flag: 'w' })
+  writeFileSync(nameFile, uniqueUrlsString, { encoding: 'utf8', flag: 'w' })
 
   console.info(`\n
     ${uniqueUrls.length} URLs extracted from ${htmlFile}
@@ -39,4 +39,4 @@ async function urlsToTxtFile(username, htmlFile) {
   \n`)
 }
 
-module.exports = urlsToTxtFile
+export default urlsToTxtFile

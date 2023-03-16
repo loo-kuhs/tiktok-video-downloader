@@ -1,15 +1,15 @@
-const TikTokVideoURL = require('./helpers/TikTokVideoURL')
-const UrlLoader = require('./helpers/UrlLoader')
-const downloadVideo = require('./utils/downloadVideo')
-const urlsToTxtFile = require('./utils/extractUrlsFromHTML')
-const infoConsoleLog = require('./utils/infoConsoleLog')
-const packageJson = require('../package.json')
-const { program } = require('commander')
+import { program } from 'commander'
+import TikTokVideoURL from './helpers/TikTokVideoURL.js'
+import UrlLoader from './helpers/UrlLoader.js'
+import downloadVideo from './utils/downloadVideo.js'
+import urlsToTxtFile from './utils/extractUrlsFromHTML.js'
+import infoConsoleLog from './utils/infoConsoleLog.js'
+import version from './utils/obtainVersionFromPkg.js'
 
 program
   .name('tiktok-video-downloader')
   .description('Download TikTok videos')
-  .version(packageJson.version, '-v, --version', 'Display version number')
+  .version(version, '-v, --version', 'Display version number')
   .option(`--url <url>`, 'URL to download')
   .option(`--file <file>`, 'File containing URLs to download')
   .option(`--read-file <file>`, 'File containing URLs to download')
