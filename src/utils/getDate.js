@@ -10,4 +10,4 @@ function getDate() {
   return `@--[ ${hours}:${minutes}:${seconds} - ${day}/${month}/${year} ]--@`
 }
 
-module.exports = getDate
+export default getDate

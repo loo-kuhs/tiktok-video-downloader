@@ -45,19 +45,21 @@ node .\src\app.js --file urls.txt
 ### Extract video urls from a txt file containing HTML from a profile of some tiktok user
 
 ```bash
-node .\src\app.js -u '<username>' -extract-urls '<path_to_file>'
+node .\src\app.js -u '<username>' --extract-urls '<path_to_file>'
 # e.g.
 node .\src\app.js -u mrbeast --extract-urls mrbeast-html.txt
 ```
 
-> Note: First scroll down the tiktok user page until the last video appears, and then copy the ```data-e2e="user-post-item-list"``` element from the user's HTML using DevTools. Then paste it into a txt file and save it.
+> Note: First scroll down the tiktok user page until the last video appears, and then copy the ```data-e2e="user-post-item-list"``` element from the user's HTML using DevTools. Then paste it into a txt file and save it. Do not format the HTML code, paste it as is in the txt file.
 
 ## TODO
 
 - [x] Add support for downloading multiple videos from txt file
 - [X] Extract video urls from a txt file containing HTML from a profile of some tiktok user
-- [ ] Refactor code to pure ESM package
+- [x] Refactor code to pure ESM package
 - [ ] Remove duplicate code
+- [ ] Reorganize code
+- [ ] Migrate to TypeScript
 
 ## Contributing
 

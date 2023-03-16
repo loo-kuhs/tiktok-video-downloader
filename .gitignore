@@ -150,7 +150,6 @@ dist
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-*.txt
 
 # Local History for Visual Studio Code
 .history/
@@ -162,6 +161,11 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+### Testing Files ###
+html.txt
+invest.txt
+urls.txt
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node
 

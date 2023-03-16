@@ -1,14 +1,14 @@
-const path = require('path')
-const fs = require('fs')
+import path from 'path'
+import { existsSync, mkdirSync } from 'fs'
 
 function ensureDirectoryExistence(filePath) {
   let dirname = path.dirname(filePath)
-  if (fs.existsSync(dirname)) {
+  if (existsSync(dirname)) {
     return true
   }
 
   ensureDirectoryExistence(dirname)
-  fs.mkdirSync(dirname)
+  mkdirSync(dirname)
 }
 
-module.exports = ensureDirectoryExistence
+export default ensureDirectoryExistence

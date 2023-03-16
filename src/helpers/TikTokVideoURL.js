@@ -188,4 +188,4 @@ class TikTokVideoURL {
   }
 }
 
-module.exports = TikTokVideoURL
+export default TikTokVideoURL

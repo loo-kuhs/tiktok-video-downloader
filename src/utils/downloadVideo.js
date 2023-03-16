@@ -1,6 +1,7 @@
-const shell = require('shelljs')
-const { writeLogData } = require('./logOutput')
-const infoConsoleLog = require('./infoConsoleLog')
+import pkg from 'shelljs'
+const { exec } = pkg
+import writeLogData from './logOutput.js'
+import infoConsoleLog from './infoConsoleLog.js'
 
 /**
  * Downloads a TikTok video.
@@ -20,7 +21,7 @@ async function downloadVideo(
 ) {
   infoConsoleLog(index, total, username, videoID, tikTokVideoURL, downloadURL)
 
-  const { code, stderr } = await shell.exec(
+  const { code, stderr } = await exec(
     `curl -L ${downloadURL} -o downloads/${username}/${username}-${videoID}.mp4 --progress-bar --create-dirs`
   )
 
@@ -36,4 +37,4 @@ async function downloadVideo(
   return code
 }
 
-module.exports = downloadVideo
+export default downloadVideo
