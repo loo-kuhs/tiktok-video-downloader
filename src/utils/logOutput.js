@@ -7,10 +7,10 @@ async function writeLogData(username, log) {
   const nameFile = `downloads/${username}/${username}_downloadLog-${date}.txt`
   ensureDirectoryExistence(nameFile)
   const content = `
-  ##########################################
+  ||||||||||||||||||||||||||||||||||||||||||
   ${log}
   At: ${getDate()} \n
-  ##########################################
+  |||||||||||||||||||||||||||||||||||||||||
   \n`
 
   fs.appendFile(nameFile, content, { encoding: 'utf8', flag: 'a' }, (err) => {

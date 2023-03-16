@@ -1,5 +1,6 @@
 const shell = require('shelljs')
 const { writeLogData } = require('./logOutput')
+const infoConsoleLog = require('./infoConsoleLog')
 
 /**
  * Downloads a TikTok video.
@@ -17,15 +18,7 @@ async function downloadVideo(
   index = 0,
   total = 1
 ) {
-  const log = `
-      Video ${index + 1} of ${total}
-      Username: ${username}
-      Video ID: ${videoID}
-      TikTok Video URL: ${tikTokVideoURL}
-      Download URL: ${downloadURL}\n`
-
-  console.info(log)
-  writeLogData(username, log)
+  infoConsoleLog(index, total, username, videoID, tikTokVideoURL, downloadURL)
 
   const { code, stderr } = await shell.exec(
     `curl -L ${downloadURL} -o downloads/${username}/${username}-${videoID}.mp4 --progress-bar --create-dirs`

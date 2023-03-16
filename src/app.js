@@ -2,6 +2,7 @@ const TikTokVideoURL = require('./helpers/TikTokVideoURL')
 const UrlLoader = require('./helpers/UrlLoader')
 const downloadVideo = require('./utils/downloadVideo')
 const urlsToTxtFile = require('./utils/extractUrlsFromHTML')
+const infoConsoleLog = require('./utils/infoConsoleLog')
 const packageJson = require('../package.json')
 const { program } = require('commander')
 
@@ -63,14 +64,13 @@ if (options.readFile) {
     const { videoID, username, tikTokVideoURL, downloadURL } =
       ttVideoUrl.createVideoObject()
 
-    console.info(
-      `\n
-        Video ${index + 1} of ${urls.length}
-        Username: ${username}
-        Video ID: ${videoID}
-        TikTok Video URL: ${tikTokVideoURL}
-        Download URL: ${downloadURL}
-      \n`
+    infoConsoleLog(
+      index,
+      urls.length,
+      username,
+      videoID,
+      tikTokVideoURL,
+      downloadURL
     )
   })
 }
