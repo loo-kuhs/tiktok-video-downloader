@@ -1,42 +1,19 @@
-import { readFileSync, writeFileSync } from 'fs'
-
 /**
- * It reads a file containing HTML, extracts the URLs, removes duplicates, and saves the unique URLs to a text
- * file
+ * It takes a string of HTML and returns an array of all the URLs found in the HTML.
  * @method
- * @param username - The username of the account you want to download from.
- * @param htmlFile - The HTML file that contains the URLs you want to extract.
+ * @param {string} html - The HTML string to extract URLs from.
+ * @returns {string[]} - An array of URLs.
  */
-async function urlsToTxtFile(username, htmlFile) {
-  let html = readFileSync(htmlFile, 'utf8')
+function extractUrlsFromHtml(html) {
+  const urlRegex = /<a href="(.+?)"/g
+  const urls = []
+  let match
 
-  const regex = /<a href="(.+?)"/g
-  let m
-  let urls = []
-  while ((m = regex.exec(html)) !== null) {
-    // This is necessary to avoid infinite loops with zero-width matches
-    if (m.index === regex.lastIndex) {
-      regex.lastIndex++
-    }
-
-    // The result can be accessed through the `m`-variable.
-    m.forEach((match, groupIndex) => {
-      if (groupIndex === 1) {
-        urls.push(match)
-      }
-    })
+  while ((match = urlRegex.exec(html)) !== null) {
+    urls.push(match[1])
   }
 
-  let uniqueUrls = [...new Set(urls)]
-  let uniqueUrlsString = uniqueUrls.join('\n')
-  const nameFile = `downloads/${username}-urls.txt`
-
-  writeFileSync(nameFile, uniqueUrlsString, { encoding: 'utf8', flag: 'w' })
-
-  console.info(`\n
-    ${uniqueUrls.length} URLs extracted from ${htmlFile}
-    Saved to ${nameFile}
-  \n`)
+  return urls
 }
 
-export default urlsToTxtFile
+export default extractUrlsFromHtml

@@ -2,9 +2,9 @@ import { program } from 'commander'
 
 import downloadVideo from './utils/downloadVideo.js'
 import infoConsoleLog from './utils/infoConsoleLog.js'
+import saveUniqueUrlsToFile from './utils/saveUniqueUrlsToFile.js'
 import TikTokVideoURL from './helpers/TikTokVideoURL.js'
 import UrlLoader from './helpers/UrlLoader.js'
-import urlsToTxtFile from './utils/extractUrlsFromHTML.js'
 import version from './utils/obtainVersionFromPkg.js'
 
 program
@@ -77,5 +77,5 @@ if (options.readFile) {
 }
 
 if (options.extractUrls) {
-  urlsToTxtFile(options.username, options.extractUrls)
+  saveUniqueUrlsToFile(options.username, options.extractUrls)
 }
