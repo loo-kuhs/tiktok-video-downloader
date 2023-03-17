@@ -1,7 +1,9 @@
 import pkg from 'shelljs'
-const { exec } = pkg
-import writeLogData from './logOutput.js'
+
 import infoConsoleLog from './infoConsoleLog.js'
+import writeLogData from './logOutput.js'
+
+const { exec } = pkg
 
 /**
  * Downloads a TikTok video.

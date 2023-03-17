@@ -1,9 +1,10 @@
 import { program } from 'commander'
+
+import downloadVideo from './utils/downloadVideo.js'
+import infoConsoleLog from './utils/infoConsoleLog.js'
 import TikTokVideoURL from './helpers/TikTokVideoURL.js'
 import UrlLoader from './helpers/UrlLoader.js'
-import downloadVideo from './utils/downloadVideo.js'
 import urlsToTxtFile from './utils/extractUrlsFromHTML.js'
-import infoConsoleLog from './utils/infoConsoleLog.js'
 import version from './utils/obtainVersionFromPkg.js'
 
 program

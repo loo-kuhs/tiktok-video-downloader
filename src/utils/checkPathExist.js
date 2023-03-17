@@ -1,5 +1,5 @@
-import path from 'path'
 import { existsSync, mkdirSync } from 'fs'
+import path from 'path'
 
 function ensureDirectoryExistence(filePath) {
   let dirname = path.dirname(filePath)

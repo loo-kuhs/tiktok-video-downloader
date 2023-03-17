@@ -1,6 +1,7 @@
 import { appendFile } from 'fs'
-import getDate from './getDate.js'
+
 import ensureDirectoryExistence from './checkPathExist.js'
+import getDate from './getDate.js'
 
 async function writeLogData(username, log) {
   const date = new Date().toISOString().slice(0, 10)
