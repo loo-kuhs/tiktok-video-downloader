@@ -52,6 +52,8 @@ node .\src\app.js -u mrbeast --extract-urls mrbeast-html.txt
 
 > Note: First scroll down the tiktok user page until the last video appears, and then copy the ```data-e2e="user-post-item-list"``` element from the user's HTML using DevTools. Then paste it into a txt file and save it. Do not format the HTML code, paste it as is in the txt file.
 
+Check my [tiktok-url-getter-extension](https://github.com/loo-kuhs/tktk-url-getter-extension.git) for a browser extension that extracts the HTML code from the user's profile page and saves it to a txt file.
+
 ## TODO
 
 - [x] Add support for downloading multiple videos from txt file
