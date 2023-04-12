@@ -56,24 +56,7 @@ if (options.readFile) {
   const urlLoader = new UrlLoader(options.readFile)
 
   urlLoader.loadUrls()
-  console.info(`This file contains ${urlLoader.getUrlsCount()} URLs`)
-
-  const urls = urlLoader.getUrlsArray()
-
-  urls.forEach((url, index) => {
-    const ttVideoUrl = new TikTokVideoURL(url)
-    const { videoID, username, tikTokVideoURL, downloadURL } =
-      ttVideoUrl.createVideoObject()
-
-    infoConsoleLog(
-      index,
-      urls.length,
-      username,
-      videoID,
-      tikTokVideoURL,
-      downloadURL
-    )
-  })
+  console.info(`The file contains ${urlLoader.getUrlsCount()} URLs`)
 }
 
 if (options.extractUrls) {
