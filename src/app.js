@@ -1,7 +1,6 @@
 import { program } from 'commander'
 
 import downloadVideo from './utils/downloadVideo.js'
-import infoConsoleLog from './utils/infoConsoleLog.js'
 import saveUniqueUrlsToFile from './utils/saveUniqueUrlsToFile.js'
 import TikTokVideoURL from './helpers/TikTokVideoURL.js'
 import UrlLoader from './helpers/UrlLoader.js'
