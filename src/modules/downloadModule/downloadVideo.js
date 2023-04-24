@@ -1,7 +1,7 @@
 import pkg from 'shelljs'
 
-import infoConsoleLog from './infoConsoleLog.js'
-import writeLogData from './logOutput.js'
+import infoConsoleLog from '../../utils/infoConsoleLog.js'
+import writeLogData from '../../utils/logOutput.js'
 
 const { exec } = pkg
 
