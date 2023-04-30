@@ -7,14 +7,15 @@ program
   .name('tiktok-video-downloader')
   .description('Download TikTok videos')
   .version(version, '-v, --version', 'Display version number')
-  .option(`--url <url>`, 'URL to download')
-  .option(`--file <file>`, 'File containing URLs to download')
-  .option(`--read-file <file>`, 'File containing URLs to download')
+  .option(`-u, --url <url>`, 'URL to download')
+  .option(`-f, --file <file>`, 'File containing URLs to download')
+  .option(`-r, --read-file <file>`, 'File containing URLs to download')
   .option(
-    `--extract-urls <file>`,
+    `-e, --extract-urls <file>`,
     'Extract URLs from a TXT file with HTML content and save them to a TXT file'
   )
-  .option(`-u, --username <username>`, 'Username to download videos from')
+  .option(`-n, --filename <username>`, 'Name the TXT file with extracted urls')
+  .helpOption(`-h, --help`, 'Display help')
   .parse(process.argv)
 
 const options = program.opts()

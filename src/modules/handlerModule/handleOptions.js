@@ -27,7 +27,7 @@ function handleOptions(options) {
   }
 
   if (options.extractUrls) {
-    saveUniqueUrlsToFile(options.username, options.extractUrls)
+    saveUniqueUrlsToFile(options.filename, options.extractUrls)
   }
 
   if (!action && !options.extractUrls) {
