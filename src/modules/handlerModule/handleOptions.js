@@ -8,7 +8,14 @@ const actions = {
   readFile: showUrlsCount,
 }
 
-function downloadTikTokVideos(options) {
+/**
+ * The function handles various options and performs corresponding actions.
+ * @method
+ * @param options - an object containing various options that can be passed to the function. The
+ * options can include a "file" property to download multiple videos, an "extractUrls" property to save
+ * unique URLs to a file, and an action property to perform a specific action.
+ */
+function handleOptions(options) {
   const action = actions[Object.keys(options).find((prop) => prop in actions)]
 
   if (action) {
@@ -28,4 +35,4 @@ function downloadTikTokVideos(options) {
   }
 }
 
-export default downloadTikTokVideos
+export default handleOptions

@@ -1,7 +1,7 @@
 import { program } from 'commander'
 
 import version from './utils/obtainVersionFromPkg.js'
-import downloadTikTokVideos from './modules/mainModule/downloadTikTokVideos.js'
+import handleOptions from './modules/handlerModule/handleOptions.js'
 
 program
   .name('tiktok-video-downloader')
@@ -19,4 +19,4 @@ program
 
 const options = program.opts()
 
-downloadTikTokVideos(options)
+handleOptions(options)
