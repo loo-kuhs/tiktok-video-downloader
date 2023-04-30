@@ -1,6 +1,6 @@
 {
   "name": "tiktok-video-downloader",
-  "version": "2.8.1",
+  "version": "3.8.1",
   "description": "Script made using javascript to download video from TikTok with a url address.",
   "exports": "./src/app.js",
   "type": "module",

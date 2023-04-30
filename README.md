@@ -47,7 +47,7 @@ node .\src\app.js --file urls.txt
 ```bash
 node .\src\app.js -n '<filename>' --extract-urls '<path_to_file>'
 # e.g.
-node .\src\app.js -n mrbeast --extract-urls mrbeast-html.txt
+node .\src\app.js -n mrbeast --extract-urls example-html.txt
 ```
 
 > Note: First scroll down the tiktok user page until the last video appears, and then copy the ```data-e2e="user-post-item-list"``` element from the user's HTML using DevTools. Then paste it into a txt file and save it. Do not format the HTML code, paste it as is in the txt file.
