@@ -1,6 +1,6 @@
 import { appendFile } from 'fs'
 
-import ensureDirectoryExistence from './checkPathExist.js'
+import checkAndCreateDir from './checkAndCreateDir.js'
 import getDate from './getDate.js'
 
 /**
@@ -14,7 +14,7 @@ import getDate from './getDate.js'
 async function writeLogData(username, log) {
   const date = new Date().toISOString().slice(0, 10)
   const nameFile = `downloads/${username}/${username}_downloadLog-${date}.txt`
-  ensureDirectoryExistence(nameFile)
+  checkAndCreateDir(nameFile)
   const content = `
   ||||||||||||||||||||||||||||||||||||||||||
   ${log}

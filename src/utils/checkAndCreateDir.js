@@ -7,14 +7,14 @@ import path from 'path'
  * @param {string} filePath - The path to the file you want to create.
  * @returns {boolean} - true if the directory exists, and if it doesn't exist, it will create the directory.
  */
-function ensureDirectoryExistence(filePath) {
+function checkAndCreateDir(filePath) {
   let dirname = path.dirname(filePath)
   if (existsSync(dirname)) {
     return true
   }
 
-  ensureDirectoryExistence(dirname)
+  checkAndCreateDir(dirname)
   mkdirSync(dirname)
 }
 
-export default ensureDirectoryExistence
+export default checkAndCreateDir
