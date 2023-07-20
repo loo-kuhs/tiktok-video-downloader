@@ -13,14 +13,6 @@ class TikTokVideoURL {
   #videoID = ''
   #username = ''
 
-  /**
-   * Creates an instance of TikTokVideoURL.
-   *
-   * @constructor
-   * @param {string} url - The URL of the TikTok video.
-   * @throws {Error} If the URL is invalid.
-   * @memberof TikTokVideoURL
-   */
   constructor(url) {
     if (!TikTokVideoURL.isValidURL(url)) {
       throw new Error('Invalid URL')
@@ -28,14 +20,6 @@ class TikTokVideoURL {
     this.#url = url
   }
 
-  /**
-   * It checks if the URL is valid or not.
-   *
-   * @static
-   * @param {string} url - The URL to check.
-   * @return {boolean} The return value is a boolean.
-   * @memberof TikTokVideoURL
-   */
   static isValidURL(url) {
     try {
       new URL(url)
@@ -46,53 +30,21 @@ class TikTokVideoURL {
     }
   }
 
-  /**
-   * It checks if the URL is a TikTok URL or not.
-   *
-   * @static
-   * @param {string} url - The TikTok video URL to check.
-   * @return {boolean} The return value is a boolean.
-   * @memberof TikTokVideoURL
-   */
   static isTikTokURL(url) {
     const regex = /^https?:\/\/(?:www\.)?tiktok\.com\/@([^\/]+)\/video\/(\d+)/
     return regex.test(url)
   }
 
-  /**
-   * It checks if the video ID provided is valid or not.
-   *
-   * @static
-   * @param {string} videoID - The video ID to check.
-   * @return {boolean} The return value is a boolean.
-   * @memberof TikTokVideoURL
-   */
   static isValidVideoID(videoID) {
     const regex = /^\d+$/
     return regex.test(videoID)
   }
 
-  /**
-   * It checks if the username provided is valid or not.
-   *
-   * @static
-   * @param {string} username - The username to check.
-   * @return {boolean} The return value is a boolean.
-   * @memberof TikTokVideoURL
-   */
   static isValidUsername(username) {
     const regex = /^[a-zA-Z0-9_.?-]+$/g
     return regex.test(username)
   }
 
-  /**
-   * It takes the TikTok URL, splits it into parts, and then returns the last part of the URL which is the video ID.
-   *
-   * @method
-   * @throws {Error} If the URL is invalid.
-   * @returns {string} The video ID.
-   * @memberof TikTokVideoURL
-   */
   getVideoID() {
     if (!TikTokVideoURL.isTikTokURL(this.#url)) {
       throw new Error('Invalid TikTok URL')
@@ -109,15 +61,6 @@ class TikTokVideoURL {
     return this.#videoID
   }
 
-  /**
-   * It splits the url into an array, then it splits the url again, then it replaces the @ symbol with
-   * nothing, then it sets the username to the url, then it returns the username.
-   *
-   * @method
-   * @throws {Error} If the URL is invalid.
-   * @returns {string} The username of the user who posted the TikTok video.
-   * @memberof TikTokVideoURL
-   */
   getUsername() {
     if (!TikTokVideoURL.isTikTokURL(this.#url)) {
       throw new Error('Invalid TikTok URL')
@@ -134,36 +77,14 @@ class TikTokVideoURL {
     return this.#username
   }
 
-  /**
-   * It returns a string that is the URL of the TikTok video.
-   *
-   * @method
-   * @returns {string} The return value is a string.
-   * @memberof TikTokVideoURL
-   */
   getTikTokVideoURL() {
     return `https://www.tiktok.com/@${this.getUsername()}/video/${this.getVideoID()}`
   }
 
-  /**
-   * It returns the download URL of the video
-   *
-   * @method
-   * @returns {string} The download URL of the video.
-   * @memberof TikTokVideoURL
-   */
   getDownloadURL() {
     return `https://www.tikwm.com/video/media/hdplay/${this.getVideoID()}.mp4`
   }
 
-  /**
-   * It returns an object that contains the video ID, the username, the TikTok video URL, and the download URL.
-   *
-   * @method
-   * @throws {Error} If the video ID or the username is invalid.
-   * @return {object} The return value is an object.
-   * @memberof TikTokVideoURL
-   */
   createVideoObject() {
     let videoID, username
 
