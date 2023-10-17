@@ -18,6 +18,7 @@ function downloadMultipleVideos(file) {
       ttVideoUrl.createVideoObject()
 
     console.info(`\nDownloading video ${index + 1} of ${urlsCount}...`)
+
     downloadVideo(
       { username, videoID, tikTokVideoURL, downloadURL },
       index,

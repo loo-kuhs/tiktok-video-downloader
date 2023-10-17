@@ -31,6 +31,7 @@ function infoConsoleLog(
 
   console.info(log)
   writeLogData(username, log)
+  
 }
 
 export default infoConsoleLog
