@@ -1,7 +1,6 @@
 import pkg from 'shelljs'
 
 import infoConsoleLog from '../../utils/infoConsoleLog.js'
-import writeLogData from '../../utils/logOutput.js'
 
 const { exec } = pkg
 
@@ -29,7 +28,6 @@ async function downloadVideo(
 
   if (code !== 0) {
     console.error(`Error: ${stderr}`)
-    writeLogData(`Error: ${stderr}`)
   }
 
   console.info(

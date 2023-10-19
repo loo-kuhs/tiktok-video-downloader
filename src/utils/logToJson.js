@@ -15,7 +15,7 @@ async function logToJson(username, logObject) {
 
     try {
       const existingDataBuffer = readFileSync(logFileName)
-      existingData = JSON.parse(existingDataBuffer.toString())
+      existingData = JSON.parse(existingDataBuffer.entries().toString())
     } catch (error) {
       console.log(error)
     }
@@ -25,7 +25,7 @@ async function logToJson(username, logObject) {
     writeFileSync(
       logFileName,
       jsonData,
-      { encoding: 'utf8', flag: 'w' },
+      { encoding: 'utf8', flag: 'a' },
       (err) => {
         if (err) throw err
       }
@@ -54,6 +54,5 @@ let test3 = [
   },
 ]
 
-logToJson('tiktok', test3)
 
 export default logToJson
