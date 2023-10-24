@@ -1,5 +1,4 @@
 import { appendFile } from 'fs'
-
 import checkAndCreateDir from './checkAndCreateDir.js'
 import getDate from './getDate.js'
 

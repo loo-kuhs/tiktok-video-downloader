@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync } from 'fs'
-
 import checkAndCreateDir from './checkAndCreateDir.js'
 
 // TODO: Update this function and merge it

@@ -1,5 +1,4 @@
 import pkg from 'shelljs'
-
 import infoConsoleLog from '../../utils/infoConsoleLog.js'
 
 const { exec } = pkg

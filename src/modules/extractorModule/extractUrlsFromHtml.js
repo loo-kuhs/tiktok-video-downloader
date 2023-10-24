@@ -5,7 +5,7 @@
  * @returns {string[]} - An array of URLs.
  */
 function extractUrlsFromHtml(html) {
-  const urlRegex = /<a href="(.+?)"/g
+  const urlRegex = /href="([^"]*)"/g
   const urls = []
   let match
 

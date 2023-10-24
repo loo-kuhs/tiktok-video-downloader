@@ -1,5 +1,4 @@
 import { readFileSync, writeFileSync } from 'fs'
-
 import extractUrlsFromHtml from './extractUrlsFromHtml.js'
 
 /**
